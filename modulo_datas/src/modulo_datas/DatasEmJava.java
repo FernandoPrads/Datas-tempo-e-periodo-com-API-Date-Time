@@ -3,6 +3,8 @@ package modulo_datas;
 import java.text.ParseException;
 
 import java.text.SimpleDateFormat;
+import java.time.Duration;
+import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -14,7 +16,7 @@ import java.util.Iterator;
 
 public class DatasEmJava {
 
-	public static void main(String[] args) throws ParseException {
+	public static void main(String[] args) throws ParseException, InterruptedException {
 
 	/*	Calendar calendar = Calendar.getInstance();
 		
@@ -146,6 +148,56 @@ public class DatasEmJava {
 			System.out.println("Data e hora atual: " + dataAtualHoraAtual.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")));
 			
 			
+		/*------------------------------dias, anos, meses e semanas-----------------------------*/
+			
+		LocalDate localDate = LocalDate.now();
+		System.out.println("Data atual: " + localDate.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+
+		System.out.println("Dia da semana: " + localDate.getDayOfWeek().name());
+		
+		System.out.println("Dia da semana: " + localDate.getDayOfMonth());
+		
+		System.out.println("Dia da semana: " + localDate.getDayOfYear());
+		
+		System.out.println("Mês: " + localDate.getMonthValue());
+		
+		System.out.println("Mês: " + localDate.getMonth());
+			
+		
+		/*-----------------------------trabalhar com Instant------------------------------*/
+		
+		Instant inicio = Instant.now();
+		
+		Thread.sleep(2000);
+		
+		Instant ifinal = Instant.now();
+		
+		Duration duracao = Duration.between(inicio, ifinal);
+		
+		System.out.println("Duração em nanos segundos: " + duracao.toNanos());
+		
+		System.out.println("Duração em minutos: " + duracao.toMinutes());
+		
+		System.out.println("Duração em horas: " + duracao.toHours());
+		
+		System.out.println("Duração em milisegundos: " + duracao.toMillis());
+		
+		System.out.println("Duração em dias: " + duracao.toDays());
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+
 	}
 
 }
